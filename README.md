@@ -1,6 +1,6 @@
 # Summit Automation
 
-**AI automation for roofing companies. Never lose a job from a missed call again.**
+**AI automation for businesses. Never lose a job from a missed call again.**
 
 ---
 
