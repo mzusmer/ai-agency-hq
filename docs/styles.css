@@ -21,22 +21,38 @@ body {
    =========================== */
 nav {
   background: #0a1628;
-  padding: 16px 24px;
+  padding: 14px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
 }
 
-nav .logo {
+/* Brand: clickable logo + wordmark, links to homepage */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.brand-logo {
+  height: 40px;
+  width: auto;          /* preserve aspect ratio — never distort */
+  display: block;
+}
+
+.brand-name {
   color: #fff;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0.5px;
-  text-decoration: none;
+  white-space: nowrap;
 }
 
-nav .logo span {
-  color: #f59e0b;
+.brand-name span {
+  color: #5b9bf5;
 }
 
 nav a {
@@ -46,16 +62,18 @@ nav a {
 }
 
 nav a.nav-cta {
-  background: #f59e0b;
-  color: #0a1628;
+  background: #2563eb;
+  color: #fff;
   padding: 10px 20px;
   border-radius: 6px;
   font-weight: 700;
   font-size: 14px;
+  white-space: nowrap;
+  transition: background 0.2s;
 }
 
 nav a.nav-cta:hover {
-  background: #d97706;
+  background: #1d4ed8;
 }
 
 /* ===========================
@@ -74,7 +92,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 12px;
-  color: #f59e0b;
+  color: #2563eb;
   font-weight: 700;
   margin-bottom: 12px;
 }
@@ -115,7 +133,7 @@ p.lead {
 }
 
 .hero h1 span {
-  color: #f59e0b;
+  color: #5b9bf5;
 }
 
 .hero p.sub {
@@ -128,8 +146,8 @@ p.lead {
 
 .btn-primary {
   display: inline-block;
-  background: #f59e0b;
-  color: #0a1628;
+  background: #2563eb;
+  color: #fff;
   padding: 16px 36px;
   border-radius: 8px;
   font-size: 18px;
@@ -139,7 +157,7 @@ p.lead {
 }
 
 .btn-primary:hover {
-  background: #d97706;
+  background: #1d4ed8;
 }
 
 .hero .trust {
@@ -197,8 +215,8 @@ p.lead {
 }
 
 .step-num {
-  background: #f59e0b;
-  color: #0a1628;
+  background: #2563eb;
+  color: #fff;
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -235,6 +253,11 @@ p.lead {
   color: #fff;
 }
 
+/* Brighter label so it stays legible on the dark section */
+.benefits .section-label {
+  color: #5b9bf5;
+}
+
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -258,7 +281,7 @@ p.lead {
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 8px;
-  color: #f59e0b;
+  color: #5b9bf5;
 }
 
 .benefit p {
@@ -271,14 +294,14 @@ p.lead {
    Audit Offer
    =========================== */
 .audit {
-  background: #fff8ed;
-  border-top: 3px solid #f59e0b;
-  border-bottom: 3px solid #f59e0b;
+  background: #eff5ff;
+  border-top: 3px solid #2563eb;
+  border-bottom: 3px solid #2563eb;
 }
 
 .audit-box {
   background: #fff;
-  border: 1px solid #fcd34d;
+  border: 1px solid #bfdbfe;
   border-radius: 12px;
   padding: 40px 36px;
   text-align: center;
@@ -354,7 +377,7 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  outline: 2px solid #f59e0b;
+  outline: 2px solid #2563eb;
   border-color: transparent;
 }
 
@@ -381,8 +404,8 @@ textarea {
 
 button[type="submit"] {
   width: 100%;
-  background: #f59e0b;
-  color: #0a1628;
+  background: #2563eb;
+  color: #fff;
   padding: 15px;
   border: none;
   border-radius: 8px;
@@ -394,7 +417,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background: #d97706;
+  background: #1d4ed8;
 }
 
 /* Form success message */
@@ -428,13 +451,38 @@ button[type="submit"]:hover {
 footer {
   background: #0a1628;
   color: #8ba3be;
-  padding: 36px 24px;
+  padding: 40px 24px;
   text-align: center;
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Footer brand: logo + wordmark, links to homepage */
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.footer-brand img {
+  height: 34px;
+  width: auto;          /* preserve aspect ratio — never distort */
+  display: block;
+}
+
+.footer-brand span span {
+  color: #5b9bf5;
 }
 
 footer .links {
-  margin-bottom: 12px;
+  margin-bottom: 0;
 }
 
 footer a {
@@ -444,7 +492,11 @@ footer a {
 }
 
 footer a:hover {
-  color: #f59e0b;
+  color: #5b9bf5;
+}
+
+footer p {
+  margin: 0;
 }
 
 /* ===========================
@@ -498,11 +550,43 @@ footer a:hover {
    Responsive
    =========================== */
 @media (max-width: 600px) {
+  nav {
+    padding: 12px 16px;
+    gap: 10px;
+  }
+
+  .brand-logo {
+    height: 34px;
+  }
+
+  .brand-name {
+    font-size: 17px;
+  }
+
+  nav a.nav-cta {
+    padding: 9px 14px;
+    font-size: 13px;
+  }
+
   .form-row {
     grid-template-columns: 1fr;
   }
 
   .audit-box {
     padding: 28px 20px;
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-name {
+    font-size: 15px;
+  }
+
+  .brand-logo {
+    height: 30px;
+  }
+
+  nav a.nav-cta {
+    padding: 8px 12px;
   }
 }

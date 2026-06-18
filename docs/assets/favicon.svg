@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Summit Automation">
+  <rect width="512" height="512" rx="96" fill="#0A1628"/>
+  <g transform="translate(86 112.155) scale(0.653846)">
+    <polygon points="250,400 365,170 460,400" fill="#4885E9"/>
+    <polygon points="60,400 210,110 330,400" fill="#5B9BF5"/>
+    <polygon points="210,110 182,216 201,200 212,228 226,197 238,158" fill="#DCE8FB"/>
+  </g>
+</svg>
