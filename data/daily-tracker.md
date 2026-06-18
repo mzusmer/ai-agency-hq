@@ -46,7 +46,7 @@ Log your activity here every day. One row per day.
 |---|---|
 | Date | YYYY-MM-DD |
 | Tasks Completed | Brief summary of what you did (e.g., "10 emails, 5 calls, 2 Looms") |
-| Leads Found | Number of new roofing companies added to the lead list |
+| Leads Found | Number of new local businesses added to the lead list |
 | Messages Sent | Total emails + DMs sent that day |
 | Calls Made | Total calls dialed (answered or voicemail) |
 | Replies | Total inbound replies received from any channel |

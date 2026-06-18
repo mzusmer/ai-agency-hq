@@ -1,6 +1,6 @@
-# GoHighLevel Custom Fields - Roofing Lead Data
+# GoHighLevel Custom Fields - Local Service Lead Data
 
-These custom fields store roofing-specific information collected by the AI agent during the SMS qualification conversation.
+These custom fields store information collected by the AI agent during the SMS qualification conversation. They are designed to work for any local service business.
 
 ---
 
@@ -18,23 +18,21 @@ These custom fields store roofing-specific information collected by the AI agent
 
 | Field Label | Field Key | Field Type | Values / Notes |
 |---|---|---|---|
-| Roofing Address | `roofing_address` | Text | Full property address |
-| Roofing Issue Description | `roofing_issue` | Text Area | What the homeowner describes |
-| Repair or Replacement | `repair_or_replacement` | Dropdown | Repair, Replacement, Unknown |
-| Urgency Level | `urgency_level` | Dropdown | Urgent (active leak/damage), Soon (within 2 weeks), Not urgent |
-| Insurance Claim | `insurance_claim` | Dropdown | Yes, No, Maybe/Unsure |
-| Storm Damage | `storm_damage` | Dropdown | Yes, No, Unknown |
-| Preferred Appointment Time | `preferred_appointment_time` | Text | Whatever the contact says (e.g., "Monday morning", "This week") |
+| Service Needed | `service_needed` | Text | Brief description of what the customer wants |
+| Request Details | `request_details` | Text Area | More detailed description of the issue or request |
+| Service Address | `service_address` | Text | Property or service location address |
+| Urgency | `urgency` | Dropdown | Urgent (same day / emergency), Soon (this week), Flexible |
+| Preferred Appointment Time | `preferred_appointment_time` | Text | What the customer says (e.g., "Monday morning", "This week") |
 | Photos Sent | `photos_sent` | Dropdown | Yes, No, Pending |
-| Lead Source | `lead_source` | Dropdown | Missed Call, Google Ad, Referral, Website, Instagram |
-| AI Qualification Status | `ai_qualification_status` | Dropdown | Not Started, In Progress, Qualified, Not Qualified |
-| Number of Previous Calls | `num_previous_calls` | Number | Auto-incremented by workflow |
+| Lead Source | `lead_source` | Dropdown | Missed Call, Chat Widget, Referral, Google Ad, Website, Social |
+| Best Next Step | `best_next_step` | Dropdown | Callback, Appointment, Estimate, Quote, Information Only |
+| AI Qualification Status | `ai_qualification_status` | Dropdown | Not Started, In Progress, Qualified, Not Qualified, Handed Off |
 
 ---
 
 ## How Fields Are Populated
 
-The AI agent extracts this information from the SMS conversation and updates the fields via:
+The AI agent extracts information from the SMS conversation and updates the fields via:
 
 - **GHL native AI:** Fields are updated automatically if the bot is configured to capture them
 - **Webhook + Claude:** The Claude agent parses the conversation and updates fields via the GHL API (PATCH contact endpoint)
@@ -47,23 +45,60 @@ Reference custom fields in SMS messages and notifications using merge tags:
 
 | Field | Merge Tag |
 |---|---|
-| Roofing Address | `{{contact.roofing_address}}` |
-| Roofing Issue | `{{contact.roofing_issue}}` |
-| Repair or Replacement | `{{contact.repair_or_replacement}}` |
-| Urgency Level | `{{contact.urgency_level}}` |
-| Insurance Claim | `{{contact.insurance_claim}}` |
+| Service Needed | `{{contact.service_needed}}` |
+| Request Details | `{{contact.request_details}}` |
+| Service Address | `{{contact.service_address}}` |
+| Urgency | `{{contact.urgency}}` |
 | Preferred Appointment Time | `{{contact.preferred_appointment_time}}` |
+| Best Next Step | `{{contact.best_next_step}}` |
 
 ---
 
 ## Using Fields in the Internal Notification
 
-Include all custom fields in the internal team notification so the roofing team sees a full lead summary before calling back. See `missed-call-workflow.md` Step 8 for the full notification template.
+Include all custom fields in the internal team notification so the business team sees a full lead summary before calling back. See `missed-call-workflow.md` Step 8 for the full notification template.
+
+---
+
+## Webhook Payload Reference
+
+If using a webhook to Claude or another AI endpoint, include these fields in the request body:
+
+```json
+{
+  "contact_id": "{{contact.id}}",
+  "first_name": "{{contact.first_name}}",
+  "last_name": "{{contact.last_name}}",
+  "phone": "{{contact.phone}}",
+  "location_name": "{{location.name}}",
+  "business_name": "{{location.name}}",
+  "call_status": "missed",
+  "message_body": "{{last_message_body}}",
+  "service_needed": "{{contact.service_needed}}",
+  "request_details": "{{contact.request_details}}",
+  "service_address": "{{contact.service_address}}",
+  "urgency": "{{contact.urgency}}",
+  "preferred_appointment_time": "{{contact.preferred_appointment_time}}",
+  "lead_source": "missed_call"
+}
+```
+
+## Expected Return JSON from AI Endpoint
+
+```json
+{
+  "reply": "The SMS message to send back to the customer",
+  "contact_id": "same contact_id from the request",
+  "next_action": "continue | handoff | qualify | end",
+  "tags": ["qualified-lead", "urgent"],
+  "pipeline_stage": "Qualified"
+}
+```
 
 ---
 
 ## Notes
 
-- Always test custom field merge tags in a sandbox contact before going live
 - Field keys are case-sensitive in GHL API calls
-- If using the GHL API to update fields, the endpoint is: `PUT /contacts/{contactId}` with the fields in the `customField` object
+- Always test merge tags in a sandbox contact before going live
+- The `service_needed` field is the most important one for internal notifications. Make sure the AI captures it early in the conversation.

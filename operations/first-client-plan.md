@@ -1,6 +1,6 @@
 # First Client Plan - Summit Automation
 
-**Goal:** Sign the first paying roofing client within 30 days.
+**Goal:** Sign the first paying local service business client within 30 days.
 
 This is a focused, day-by-day plan for weeks 1 through 4. Follow it as closely as possible while staying flexible based on what responses you get.
 
@@ -11,20 +11,21 @@ This is a focused, day-by-day plan for weeks 1 through 4. Follow it as closely a
 **Goal:** Get everything ready to start outreach with confidence.
 
 ### Day 1 to 2
-- [ ] Complete the GoHighLevel demo account build (a fake client account to show on demos)
-- [ ] Set up a test phone number and run through the full workflow yourself
+- [ ] Build out a GoHighLevel demo account (a fake client account to show on calls)
+- [ ] Set up a test phone number and run through the full missed call workflow yourself
 - [ ] Take screenshots and record a short demo video of the system in action
 - [ ] Review all files in this repo and feel confident answering basic questions about the offer
 
 ### Day 3 to 4
-- [ ] Research 30 roofing companies in your target market(s)
-- [ ] Fill in `data/roofing-lead-list.md` with their details
-- [ ] Identify the 10 best-fit prospects (most likely to be losing calls, most likely to respond)
-- [ ] Set up your outreach email account (use a professional email, e.g., firstname@summitautomation.io)
+- [ ] Decide which industry to target first (recommendation: HVAC, plumbing, or landscaping for high call volume and clear urgency)
+- [ ] Research 30 businesses in your target market
+- [ ] Fill in `data/lead-list.md` with their details
+- [ ] Identify the 10 best-fit prospects (active GBP, good review count, reliant on inbound calls)
+- [ ] Set up your outreach email account
 
 ### Day 5 to 7
-- [ ] Send first batch of cold emails (10 companies)
-- [ ] Send first batch of Instagram DMs (10 companies)
+- [ ] Send first batch of cold emails (10 businesses)
+- [ ] Send first batch of Instagram DMs (10 businesses)
 - [ ] Record and send 3 personalized Loom audits
 - [ ] Make your first 5 cold calls
 - [ ] Log everything in `data/daily-tracker.md`
@@ -46,10 +47,10 @@ This is a focused, day-by-day plan for weeks 1 through 4. Follow it as closely a
 - [ ] At least 1 demo call scheduled by end of week
 
 ### If Nothing Is Working
-- Try a different market (different city or state)
-- Adjust your email subject line and first sentence
-- Record a better Loom video (shorter and more specific)
-- Review `objection-handling.md` and practice the conversations out loud
+- Try a different industry or city
+- Adjust your email subject line and opening sentence
+- Record a better Loom video (shorter and more specific to their business)
+- Review `sales/objection-handling.md` and practice the conversations
 
 ---
 
@@ -58,16 +59,16 @@ This is a focused, day-by-day plan for weeks 1 through 4. Follow it as closely a
 **Goal:** Run your first demo call and send your first proposal.
 
 ### Demo Prep (Do This Before Every Demo)
-- [ ] Review the prospect's Google Business Profile, website, and social
-- [ ] Prepare their "missed call audit" numbers (estimate based on review volume and activity)
+- [ ] Review the prospect's Google Business Profile, website, and social media
+- [ ] Prepare their "missed call audit" (estimate based on their review volume and activity)
 - [ ] Have the GHL demo account open and ready to screen share
 - [ ] Review `sales/objection-handling.md` one more time
 
 ### During the Demo
-- [ ] Walk through the problem (missed calls = lost revenue)
+- [ ] Walk through the problem (missed calls = lost customers)
 - [ ] Show the system live in the demo account
-- [ ] Show the homeowner experience (what the texts look like)
-- [ ] Show the GHL dashboard and notification system
+- [ ] Show what the customer experience looks like (what the texts look like on a phone)
+- [ ] Show the GHL dashboard and the notification the business receives
 - [ ] Share the pricing clearly and without apology
 - [ ] Ask: "Does this make sense for [Business Name]?"
 
@@ -94,13 +95,13 @@ This is a focused, day-by-day plan for weeks 1 through 4. Follow it as closely a
 - [ ] Schedule the onboarding call within 2 business days of payment
 
 ### Keep Outreaching
-Even if a deal is close, keep reaching out to new prospects. Do not stop outreach until you have at least 3 paying clients. One signed client does not mean outreach stops.
+Even if a deal is close, keep reaching out to new prospects. Do not stop outreach until you have at least 3 paying clients.
 
 ---
 
 ## If You Hit Day 30 Without a Signed Client
 
-Do not panic. Do a quick audit:
+Do a quick audit:
 
 | Question | Possible Fix |
 |---|---|
@@ -108,7 +109,7 @@ Do not panic. Do a quick audit:
 | Are people opening emails but not replying? | Change the subject line and first sentence |
 | Are people booking demos but not signing? | Review the demo and pricing conversation |
 | Is pricing getting in the way? | Lead more with ROI, not price |
-| Is nobody answering calls or emails? | Try a different niche or city |
+| Is nobody answering calls or emails? | Try a different industry or city |
 
 Reset and run Week 2 again with a fresh batch of prospects.
 

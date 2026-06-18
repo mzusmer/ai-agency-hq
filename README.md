@@ -1,12 +1,12 @@
 # Summit Automation
 
-**AI automation for businesses. Never lose a job from a missed call again.**
+**AI automation for local service businesses. Never lose a customer from a missed call again.**
 
 ---
 
 ## What Is Summit Automation?
 
-Summit Automation is an AI automation agency that helps roofing contractors capture more leads and book more inspections without lifting a finger. Our core offer is a missed call text-back system that instantly texts anyone who calls and does not reach you, collects job details, and helps book roof inspections or estimates on autopilot.
+Summit Automation is an AI automation agency that helps local service businesses capture more leads and book more appointments without lifting a finger. Our core offer is a missed call text-back system that instantly texts anyone who calls and does not reach you, collects their request details, and helps book the next step automatically.
 
 ---
 
@@ -14,24 +14,25 @@ Summit Automation is an AI automation agency that helps roofing contractors capt
 
 **Missed Call Text-Back Automation**
 
-When a homeowner calls your roofing company and you do not answer, they usually call your competitor next. Summit Automation sends an automatic text message within seconds of the missed call. An AI agent then:
+When a customer calls a local business and no one answers, they usually call a competitor next. Summit Automation sends an automatic text message within seconds of the missed call. An AI agent then:
 
 - Greets the caller by name
-- Asks about their roofing issue
-- Qualifies the lead (repair vs. replacement, urgency, insurance claim, etc.)
-- Collects their address and contact info
-- Offers to book an inspection or estimate
-- Notifies your team the moment a hot lead is ready
+- Asks what they need help with
+- Collects the relevant details (service type, location, urgency, preferred time)
+- Offers to schedule a callback, appointment, or estimate
+- Notifies the business team the moment a qualified lead is ready
 
 ---
 
-## Target Niche
+## Who We Serve
 
-- Residential roofing contractors
-- 1 to 10 person operations
-- Owners who answer their own phones or have a small office team
-- Companies running Google Local Service Ads or relying on referrals
-- Located in storm-prone markets (Texas, Florida, Colorado, Oklahoma, etc.)
+Summit Automation works with any local service business that relies on inbound calls to generate revenue:
+
+- Home services: HVAC, plumbing, electrical, landscaping, cleaning, pest control
+- Health and wellness: med spas, chiropractic, dental, physical therapy, massage
+- Auto services: detailing, repair, tinting, collision, tire shops
+- Professional services: real estate, insurance, financial, legal, accounting
+- Any appointment-based or service-call-based local business
 
 ---
 
@@ -51,7 +52,7 @@ Setup includes GoHighLevel build-out, AI agent configuration, SMS compliance set
 - **GoHighLevel (GHL)** - CRM, workflow automation, SMS, pipeline management
 - **AI Agent (Claude or GHL AI)** - Conversational lead qualification via SMS
 - **A2P 10DLC** - SMS compliance registration
-- **Google Business Profile** - Lead source integration
+- **Google Business Profile** - Primary lead source for most clients
 - **Loom** - Personalized video audits for outreach
 
 ---
@@ -63,15 +64,19 @@ ai-agency-hq/
 README.md                    This file
 CLAUDE.md                    Instructions for future Claude sessions
 
-website/
-  index.html                 Landing page for roofing company prospects
+website/ (archived)          Original website files (moved to docs/)
+
+docs/
+  index.html                 Live landing page (GitHub Pages)
   privacy-policy.html        SMS and data privacy policy
   terms-of-service.html      Terms of service
+  styles.css                 Shared stylesheet
+  script.js                  Shared JavaScript
 
 ghl/
   missed-call-workflow.md    Step-by-step GHL workflow build
   pipeline-setup.md          CRM pipeline stages
-  custom-fields.md           Custom fields for roofing leads
+  custom-fields.md           Custom fields for lead data
   tags.md                    Tag system and logic
   a2p-sms-examples.md        A2P registration sample messages
   testing-checklist.md       Pre-launch QA checklist
@@ -96,13 +101,13 @@ sales/
 operations/
   client-onboarding-checklist.md  Steps after closing a client
   installation-checklist.md       Technical setup checklist
-  daily-tracker.md                Daily activity log
-  roofing-lead-list-template.md   Prospecting spreadsheet guide
+  daily-tracker.md                Daily activity log guide
+  lead-list-template.md           Prospecting guide for local businesses
   first-client-plan.md            30-day plan to land client #1
 
 data/
   daily-tracker.md           Fillable daily tracker table
-  roofing-lead-list.md       Roofing prospect database table
+  lead-list.md               Local business prospect database
 ```
 
 ---
@@ -111,7 +116,7 @@ data/
 
 1. Read `CLAUDE.md` to understand the business context
 2. Review `ghl/missed-call-workflow.md` to build the automation
-3. Set up your AI agent using `ai-agent/missed-call-agent-prompt.md`
+3. Set up the AI agent using `ai-agent/missed-call-agent-prompt.md`
 4. Use `sales/cold-email-scripts.md` and `sales/cold-call-script.md` to find clients
 5. Close deals using `sales/proposal-template.md` and `sales/pricing.md`
 6. Onboard clients with `operations/client-onboarding-checklist.md`

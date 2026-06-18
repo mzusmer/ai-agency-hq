@@ -4,13 +4,13 @@
 
 ## Email Strategy
 
-Target roofing companies that:
-- Have a Google Business Profile with reviews (shows they get calls)
-- Have a phone number listed (confirms they rely on inbound calls)
-- Show signs they are busy (many reviews, active profile)
-- Are in storm-prone markets
+Target local service businesses that:
+- Have a Google Business Profile with reviews (shows they get inbound calls)
+- Have a phone number listed as the primary contact method
+- Show signs of consistent activity (frequent reviews, updated profile)
+- Are in markets where demand for their service is high year-round or seasonal
 
-Find contacts by searching Google Maps for "roofing company [city]" and pulling owner names from their website, LinkedIn, or Google Business Profile.
+Find contact names from their website, LinkedIn, or Google Business Profile. Search Google Maps for "[service type] [city]" to build your list.
 
 ---
 
@@ -22,13 +22,13 @@ Find contacts by searching Google Maps for "roofing company [city]" and pulling 
 
 Hi [First Name],
 
-I ran a quick check on [Business Name] and noticed something a lot of roofing companies deal with: calls coming in that don't always get answered right away, especially when the crew is on a job.
+Quick question: do you know how many calls [Business Name] misses each week?
 
-We help roofing companies in [State/City] set up an automated text-back system that texts every missed caller within seconds and qualifies them while you're busy. By the time you see the notification, the lead is already warmed up.
+I help local [service type] businesses set up an automated text-back system that texts every missed caller within seconds and qualifies the lead while the team is busy. By the time someone at your business sees the notification, the customer is already warmed up and ready to book.
 
-Takes about a week to set up. No new software for you to learn.
+Takes about a week to set up. No new software for you to manage.
 
-Would it be worth a quick 15-minute call to show you what it looks like?
+Would a quick 15-minute call be worth it to show you how it works?
 
 [Your Name]
 Summit Automation
@@ -44,13 +44,13 @@ Summit Automation
 
 Hi [First Name],
 
-Just following up on the note I sent a few days ago.
+Just following up on my note from earlier this week.
 
-I know things get busy, especially in roofing season. I just wanted to share one thing: the average roofing company misses somewhere between 20 and 40 percent of their inbound calls. At $8,000 to $15,000 per job, that adds up fast.
+Most local service businesses miss somewhere between 20 and 40 percent of their inbound calls, usually because the team is busy with a client or out in the field. At [estimated job value] per appointment, that adds up fast.
 
-If you want, I can put together a quick audit showing what this looks like for [Business Name] specifically. No cost, no commitment.
+I can put together a quick free audit for [Business Name] showing what this looks like for your specific setup. No cost, no commitment.
 
-Just reply and I'll get it to you.
+Just reply and I will get it to you.
 
 [Your Name]
 
@@ -64,11 +64,11 @@ Just reply and I'll get it to you.
 
 Hi [First Name],
 
-I don't want to clog your inbox, so this is the last follow-up.
+I don't want to clog your inbox, so this will be the last follow-up.
 
-If you're ever curious how much revenue is walking out the door from missed calls, reach out. I'm happy to put together a free audit for you.
+If you are ever curious how much business is slipping through from missed calls, I am happy to put together a free audit. It takes me about 10 minutes and shows you exactly what the numbers look like.
 
-In the meantime, good luck with the season.
+Good luck with the season.
 
 [Your Name]
 Summit Automation
@@ -76,7 +76,7 @@ Summit Automation
 
 ---
 
-## Email - After Loom Video Send (Day After Video)
+## Email - After Loom Video Send
 
 **Subject:** Did you get a chance to watch?
 
@@ -84,13 +84,11 @@ Summit Automation
 
 Hi [First Name],
 
-Sent over a quick video yesterday showing a missed call audit for [Business Name]. Just wanted to make sure it landed.
+Sent over a quick video yesterday with a missed call audit for [Business Name]. Just wanted to make sure it landed.
 
 [Video Link]
 
-Takes about 2 minutes. If it's useful, I'd love to get on a call and walk you through how the system would actually work for your setup.
-
-If not, no worries at all. Happy to help whenever the timing is right.
+Takes about 2 minutes. If it raises questions, I am happy to walk through it on a short call.
 
 [Your Name]
 
@@ -106,19 +104,34 @@ Hi [First Name],
 
 [Mutual Contact or Company Name] mentioned you might be a good fit for what we do at Summit Automation.
 
-We set up missed call text-back systems for roofing companies. When a homeowner calls and doesn't get an answer, the system texts them back instantly and qualifies the lead automatically.
+We set up missed call text-back systems for local service businesses. When a customer calls and does not get an answer, the system texts them back in seconds and qualifies them automatically. By the time the team follows up, the customer is already engaged.
 
-[Referrer's name] saw it in action and thought it might be useful for you. Would you be open to a quick 15-minute call?
+[Referrer's name] saw it working firsthand and thought it could be useful for you. Would you be open to a quick 15-minute call?
 
 [Your Name]
+
+---
+
+## Industry-Specific Subject Line Ideas
+
+Test different subject lines based on the niche you are targeting:
+
+| Industry | Subject Line |
+|---|---|
+| HVAC | "Quick question about after-hours calls" |
+| Med Spa | "Quick question about missed appointment requests" |
+| Dental | "Quick question about new patient inquiries" |
+| Landscaping | "Quick question about missed calls during jobs" |
+| Plumbing | "Quick question about after-hours emergency calls" |
+| Auto Detailing | "Quick question about missed booking requests" |
 
 ---
 
 ## Email Formatting Tips
 
 - Keep emails under 150 words when possible
-- No attachments in first email (gets filtered)
-- Always personalize with their name and company name
-- Send from a real personal inbox, not a mass email tool (for now)
-- Follow up exactly 3 times. Then stop.
-- Test subject lines: curiosity-based subjects outperform benefit-heavy subjects
+- No attachments in the first email (gets filtered)
+- Always personalize with name and business name
+- Send from a real personal inbox, not a mass email tool
+- Follow up exactly 3 times, then stop
+- Mention the specific industry (e.g., "HVAC business" not just "business")

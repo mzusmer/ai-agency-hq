@@ -7,7 +7,7 @@ A2P (Application-to-Person) 10DLC is the US carrier system that requires all bus
 ## Why This Matters
 
 If you skip A2P registration:
-- Your messages may be blocked or filtered by carriers
+- Messages may be blocked or filtered by carriers
 - Delivery rates drop significantly
 - The client's number can get flagged or blacklisted
 - This can happen without any warning
@@ -18,50 +18,76 @@ Always register before going live with any client.
 
 ## What You Need to Register
 
-1. **Business Information**
-   - Legal business name
-   - EIN (Employer Identification Number)
-   - Business address
-   - Business website
-   - Business type (LLC, Sole Proprietorship, etc.)
+**1. Business Information**
+- Legal business name
+- EIN (Employer Identification Number)
+- Business address
+- Business website
+- Business type (LLC, Sole Proprietorship, etc.)
 
-2. **Use Case**
-   - Select: Mixed (Customer Care + Marketing) or Two-Factor Auth, depending on workflow
-   - For missed call text-back: **Customer Care** is the primary use case
+**2. Use Case**
+- Select: Mixed (Customer Care + Marketing) or Customer Care only
+- For missed call text-back: **Customer Care** is the primary use case
 
-3. **Sample Messages**
-   - You must submit 2 to 5 sample messages that represent exactly what you will send
-   - Samples must include opt-out language
+**3. Sample Messages**
+- Submit 2 to 5 sample messages that represent exactly what you will send
+- Samples must include opt-out language
 
 ---
 
-## A2P Sample Messages for Roofing Missed Call Text-Back
+## A2P Sample Messages for Local Business Missed Call Text-Back
 
 Submit these as your sample messages during registration:
 
 **Sample 1 - First Response:**
 ```
-Hey [First Name], this is [Business Name] Roofing. Sorry we missed your call! Are you reaching out about a roofing issue? Reply YES and we'll get right with you. Reply STOP to opt out. Msg&Data rates may apply.
+Hey {{contact.first_name}}, sorry we missed your call. This is {{location.name}}. What can we help you with today? Reply STOP to opt out. Msg & Data rates may apply.
 ```
 
-**Sample 2 - Qualification Follow-Up:**
+**Sample 2 - Follow-Up Question:**
 ```
-Thanks for reaching out to [Business Name]! Can you tell us your address and what's going on with your roof? We want to get you taken care of as fast as possible.
-```
-
-**Sample 3 - Appointment Offer:**
-```
-Great! We have openings this week for free roof inspections. What day and time works best for you? We'll confirm and send a reminder.
+Thanks for reaching out to {{location.name}}. Can you share a few details about what service you need? Reply STOP to opt out.
 ```
 
-**Sample 4 - Follow-Up (Day 3):**
+**Sample 3 - Scheduling:**
 ```
-Hi [First Name], [Business Name] here. We still have openings for free inspections this week. Want to grab one? Just reply YES or give us a call.
+Got it. What is the best day and time for someone to follow up with you or get you scheduled? Reply STOP to opt out.
+```
+
+**Sample 4 - Day 3 Follow-Up:**
+```
+Hi {{contact.first_name}}, {{location.name}} here. Still happy to help! Would you like to get something scheduled this week? Reply STOP to opt out.
 ```
 
 **Sample 5 - Final Follow-Up:**
 ```
-Last follow-up from [Business Name]. If you need roofing help anytime, we're here. Call or text us anytime. Take care! Reply STOP to opt out.
+Last follow-up from {{location.name}}. If you ever need us, just call or text anytime. Take care! Reply STOP to opt out.
+```
+
+---
+
+## A2P Campaign Description
+
+Use this when submitting your campaign registration:
+
+> We send text messages to people who contact our business by calling our business line, using our website chat widget, or requesting information about our services. Messages include missed call follow-up, appointment scheduling assistance, estimate requests, and general customer support. All recipients can reply STOP at any time to opt out of future messages.
+
+---
+
+## Opt-In Description
+
+Use this when submitting your opt-in method:
+
+> Contacts opt in by calling the business directly (inbound-initiated contact), by using the website chat widget, or by requesting information about our services. The website chat widget includes clear SMS consent language explaining that they may receive calls and text messages from the business. Recipients can reply STOP at any time to opt out.
+
+---
+
+## Opt-Out Confirmation
+
+When a contact replies STOP, send this message:
+
+```
+You have been unsubscribed and will not receive further messages from {{location.name}}. Reply START to resubscribe anytime.
 ```
 
 ---
@@ -72,7 +98,7 @@ Every first SMS to a new contact must include:
 1. Business name
 2. What the message is about
 3. Opt-out instruction: `Reply STOP to opt out`
-4. Message frequency disclosure (can be brief): `Msg&Data rates may apply`
+4. Message frequency or rate disclosure: `Msg & Data rates may apply`
 
 ---
 
@@ -80,7 +106,7 @@ Every first SMS to a new contact must include:
 
 When a contact replies STOP, GHL automatically marks them as unsubscribed and stops all SMS. You should also:
 
-1. Add tag: `DNC`
+1. Add tag: `dnc`
 2. Remove them from all active workflows
 3. Never manually send them another SMS
 
@@ -107,19 +133,12 @@ If using a Twilio number connected to GHL:
 
 ---
 
-## Timing
-
-- Register A2P before you start building the workflow
-- Allow up to 7 business days for approval
-- Do not send any automated SMS until registration is approved
-
----
-
 ## Common Rejection Reasons
 
 | Reason | Fix |
 |---|---|
-| Missing opt-out language | Add "Reply STOP to opt out" to sample messages |
-| Vague use case description | Be specific: "Text-back for missed calls from roofing company customers" |
+| Missing opt-out language | Add "Reply STOP to opt out" to every sample |
+| Vague use case description | Be specific: "Text-back for missed calls from local service business customers" |
 | Business name not in messages | Add the business name to every sample |
-| Website does not match business | Make sure the website includes SMS opt-in language |
+| Website does not include SMS consent | Add consent language to the website (already done on the Summit Automation site) |
+| Opt-in method unclear | Describe exactly how customers opt in (called the business, used the chat widget) |

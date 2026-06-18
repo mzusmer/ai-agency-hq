@@ -7,95 +7,99 @@ These rules define when the AI agent stops managing the conversation and hands i
 ## What Is a Handoff?
 
 A handoff means the AI agent:
-1. Sends a closing message to the homeowner explaining a human will follow up
+1. Sends a closing message to the customer explaining a human will follow up
 2. Flags the contact in GHL with the appropriate tag
-3. Sends an internal notification to the roofing team
+3. Sends an internal notification to the business team
 4. Stops responding to further messages in that thread
 
 ---
 
 ## When to Hand Off
 
-### Trigger 1: Homeowner Requests a Human
-If the homeowner says anything like:
+### Trigger 1: Customer Requests a Human
+If the customer says anything like:
 - "Can I talk to someone?"
 - "Can a real person call me?"
 - "I want to speak to the owner"
 - "Is there a human I can talk to?"
 
 **Response:**
-> "Of course! I'll let our team know to give you a call. What's the best time to reach you today or tomorrow?"
+> "Of course! I will let our team know to give you a call. What is the best time to reach you today or tomorrow?"
 
-**Action:** Apply tag `Handoff Requested`, send internal notification.
+**Action:** Apply tag `handoff-requested`, send internal notification.
 
 ---
 
-### Trigger 2: Emergency or Safety Situation
-If there is any sign of immediate danger or structural emergency.
+### Trigger 2: Emergency or Urgent Safety Situation
+If there is any sign of immediate danger, safety risk, or time-sensitive emergency.
 
 **Response:**
-> "This sounds urgent. I'm notifying our team right now to call you immediately. If there's any risk to your safety, please move to a safe location. Our team will be in touch very shortly."
+> "This sounds urgent. I am notifying our team right now to reach out as fast as possible. If there is any immediate risk, please take care of yourself first. Our team will be in touch very shortly."
 
-**Action:** Apply tag `Urgent`, send high-priority internal notification with SMS alert to owner's cell.
+**Action:** Apply tag `urgent`, send high-priority internal notification with optional SMS alert to owner's cell.
 
 ---
 
 ### Trigger 3: Anger or Escalation
-If the homeowner is clearly frustrated and the conversation is not improving.
+If the customer is clearly frustrated and the conversation is not improving.
 
 **Response:**
-> "I completely understand your frustration and I'm sorry for the trouble. Let me have our team reach out to you directly so we can make this right. Is there a good number and time to call you?"
+> "I completely understand your frustration and I'm sorry for the trouble. Let me have our team reach out to you directly so we can make this right. Is there a good time and number to call you?"
 
-**Action:** Apply tag `Escalation - Needs Human`, send internal notification.
+**Action:** Apply tag `escalation-needs-human`, send internal notification.
 
 ---
 
 ### Trigger 4: Question Outside Agent Knowledge
-If the homeowner asks something the agent cannot answer accurately:
-- Specific material pricing or availability
-- Permit requirements
-- Questions about a specific crew member or past job
-- Legal or insurance claim specifics
+If the customer asks something the agent cannot answer accurately:
+- Specific pricing or availability
+- Questions about specific staff members
+- Product or service details not in the agent's knowledge
+- Legal, medical, or financial questions
 
 **Response:**
-> "That's a great question and I want to make sure you get the right answer. Let me have someone from our team follow up with you directly on that. Is there a good time to call?"
+> "That is a great question and I want to make sure you get the right answer. Let me have someone from our team follow up with you directly. Is there a good time to call?"
 
-**Action:** Apply tag `Question for Human`, note the question in the conversation or custom field, send internal notification.
+**Action:** Apply tag `question-for-human`, note the question, send internal notification.
 
 ---
 
 ### Trigger 5: Lead Fully Qualified
-After the agent has collected all required information and the homeowner has confirmed their preferred appointment time.
+After the agent has collected all required information and the customer has confirmed their preferred appointment or callback time.
 
-This is a positive handoff. The human team confirms the appointment and prepares for the visit.
+This is a positive handoff. The human team confirms the appointment or next step.
 
 **Response:**
-> "You're all set, [Name]! I've passed everything along to our team. You'll receive a confirmation soon. Is there anything else you'd like us to know before we come out?"
+> "You are all set, {{contact.first_name}}! I have passed everything along to the team. You will hear from us soon to confirm your next step. Is there anything else you would like us to know?"
 
-**Action:** Apply tag `Hot Lead - Inspection Requested`, move to pipeline stage `Estimate Scheduled`, send full lead summary notification to team.
+**Action:** Apply tag `qualified-lead`, move to pipeline stage `Appointment Requested`, send full lead summary notification to team.
 
 ---
 
 ## Internal Notification Content for Handoffs
 
-Send to: Owner email + (optional) owner cell via SMS
+Send to: Business owner email + (optional) owner cell via SMS
 
-**Subject:** Action Required: [Handoff Type] - [Contact Name]
+**Subject:** Action Required: {{handoff_type}} - {{contact.full_name}}
 
 **Body:**
 ```
 Contact: {{contact.full_name}}
 Phone: {{contact.phone}}
-Address: {{contact.roofing_address}}
-Issue: {{contact.roofing_issue}}
-Repair/Replacement: {{contact.repair_or_replacement}}
-Urgency: {{contact.urgency_level}}
-Insurance: {{contact.insurance_claim}}
+Service Needed: {{contact.service_needed}}
+Request Details: {{contact.request_details}}
+Address: {{contact.service_address}}
+Urgency: {{contact.urgency}}
 Preferred Time: {{contact.preferred_appointment_time}}
 
-Handoff Reason: [Requested human / Emergency / Escalation / Question / Fully qualified]
+Handoff Reason: [Customer requested human / Urgent / Escalation / Question / Fully qualified]
 
 View the full conversation in GHL: [Link to contact]
+```
+
+Optional SMS to owner:
+```
+NEW LEAD: {{contact.full_name}} at {{contact.phone}} needs help with {{contact.service_needed}}. Check GHL now.
 ```
 
 ---
@@ -104,15 +108,15 @@ View the full conversation in GHL: [Link to contact]
 
 - The AI agent stops sending messages to this contact
 - The human team takes over from GHL Conversations
-- If the human team fails to respond within 2 hours (during business hours), a reminder notification fires
-- Log the outcome in the pipeline (Closed Won, Closed Lost, or still in progress)
+- If the human team fails to respond within 2 hours during business hours, a reminder notification fires
+- Log the outcome in the pipeline (Won, Lost, or still in progress)
 
 ---
 
 ## What the Human Team Does After a Handoff
 
 1. Read the full conversation in GHL
-2. Review the custom field data (address, issue, urgency, insurance, appointment time)
-3. Call the homeowner to confirm details or resolve their concern
+2. Review the custom field data (service needed, details, urgency, timing)
+3. Call or text the customer to confirm details or resolve their concern
 4. Update the pipeline stage and add notes
-5. Schedule the inspection in the calendar if not already done
+5. Confirm the appointment or next step if not already done

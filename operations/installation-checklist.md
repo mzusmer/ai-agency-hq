@@ -1,6 +1,6 @@
 # Technical Installation Checklist - Summit Automation
 
-This is the step-by-step technical build checklist. Use it alongside the client onboarding checklist to make sure nothing is missed.
+This is the step-by-step technical build checklist. Use it alongside the client onboarding checklist to make sure nothing is missed. Works for any local service business.
 
 ---
 
@@ -9,10 +9,11 @@ This is the step-by-step technical build checklist. Use it alongside the client 
 - [ ] Log into your GHL Agency account
 - [ ] Create a new sub-account for the client
   - Business name
+  - Industry
   - Address
   - Phone number
   - Email
-  - Time zone (set correctly for their location)
+  - Time zone (set to the client's local time zone)
 - [ ] Assign a phone number to the sub-account (GHL number or connect their existing Twilio number)
 - [ ] Set up the GHL Conversations inbox
 - [ ] Configure business hours in GHL settings
@@ -21,7 +22,7 @@ This is the step-by-step technical build checklist. Use it alongside the client 
 
 ## A2P 10DLC Registration
 
-- [ ] Confirm the phone number is not already registered (check in GHL or Twilio)
+- [ ] Confirm the phone number is not already registered
 - [ ] Submit Brand registration:
   - Legal business name
   - EIN
@@ -31,8 +32,10 @@ This is the step-by-step technical build checklist. Use it alongside the client 
 - [ ] Submit Campaign registration:
   - Use case: Customer Care (or Mixed)
   - Sample messages (see `ghl/a2p-sms-examples.md`)
-- [ ] Confirm registration is submitted and note the pending approval
-- [ ] Flag go-live date as contingent on A2P approval
+  - Campaign description (see `ghl/a2p-sms-examples.md`)
+  - Opt-in method description (see `ghl/a2p-sms-examples.md`)
+- [ ] Confirm registration is submitted and note approval status
+- [ ] Flag go-live date as contingent on A2P approval if not yet approved
 
 ---
 
@@ -40,33 +43,32 @@ This is the step-by-step technical build checklist. Use it alongside the client 
 
 Create all custom fields in GHL Settings > Custom Fields (see `ghl/custom-fields.md` for full list):
 
-- [ ] `roofing_address` (Text)
-- [ ] `roofing_issue` (Text Area)
-- [ ] `repair_or_replacement` (Dropdown)
-- [ ] `urgency_level` (Dropdown)
-- [ ] `insurance_claim` (Dropdown)
-- [ ] `storm_damage` (Dropdown)
+- [ ] `service_needed` (Text)
+- [ ] `request_details` (Text Area)
+- [ ] `service_address` (Text)
+- [ ] `urgency` (Dropdown)
 - [ ] `preferred_appointment_time` (Text)
 - [ ] `photos_sent` (Dropdown)
 - [ ] `lead_source` (Dropdown)
+- [ ] `best_next_step` (Dropdown)
 - [ ] `ai_qualification_status` (Dropdown)
 
 ---
 
 ## Pipeline Setup
 
-Create the Roofing Leads pipeline in GHL CRM > Pipelines:
+Create the Missed Call Leads pipeline in GHL CRM > Pipelines:
 
-- [ ] Create pipeline named: Roofing Leads
+- [ ] Create pipeline named: Missed Call Leads
 - [ ] Add stages in order:
   - New Lead
-  - No Response
-  - Contacted
+  - Texted Back
   - Qualified
-  - Estimate Scheduled
-  - Proposal Sent
-  - Closed Won
-  - Closed Lost
+  - Appointment Requested
+  - Appointment Booked
+  - No Response
+  - Won
+  - Lost
 
 ---
 
@@ -74,15 +76,15 @@ Create the Roofing Leads pipeline in GHL CRM > Pipelines:
 
 Build the missed call workflow (see `ghl/missed-call-workflow.md` for full instructions):
 
-- [ ] Create workflow: Missed Call Text-Back - Roofing
+- [ ] Create workflow: Missed Call Text-Back
 - [ ] Set trigger: Missed Call
-- [ ] Add filters: exclude DNC and Existing Client tags
-- [ ] Add Step 1: Create/Update Opportunity (pipeline: Roofing Leads, stage: New Lead)
+- [ ] Add filters: exclude `dnc` and `existing-client` tags
+- [ ] Add Step 1: Create/Update Opportunity (pipeline: Missed Call Leads, stage: New Lead)
 - [ ] Add Step 2: Send SMS - First text-back message
 - [ ] Add Step 3: Wait for reply (30 min timeout)
 - [ ] Add Step 4: If/Else branch (replied vs. no reply)
 - [ ] Add Step 4B: No reply follow-up SMS
-- [ ] Add Step 4C: Tag (No Reply - Missed Call), update pipeline (No Response)
+- [ ] Add Step 4C: Apply tag `no-response`, update pipeline to No Response
 - [ ] Add Step 5: AI agent (GHL native or webhook)
 - [ ] Add Step 6: Apply tags based on qualification outcome
 - [ ] Add Step 7: Update pipeline stage based on outcome
@@ -96,9 +98,10 @@ Build the missed call workflow (see `ghl/missed-call-workflow.md` for full instr
 
 - [ ] Open agent prompt from `ai-agent/missed-call-agent-prompt.md`
 - [ ] Replace all placeholder text:
-  - [Business Name] with client's company name
-  - [X hours] with realistic callback window
+  - Business name placeholder with client's actual business name
+  - Callback window with a realistic timeframe for this client
   - Business hours with actual hours
+  - Add any industry-specific notes (see customization notes in the prompt file)
 - [ ] Configure in GHL AI Employee or set up webhook to Claude endpoint
 - [ ] Test agent with a practice phone number
 
@@ -107,7 +110,7 @@ Build the missed call workflow (see `ghl/missed-call-workflow.md` for full instr
 ## Internal Notification Setup
 
 - [ ] Confirm owner's notification email
-- [ ] Confirm whether SMS alerts to owner's cell are desired
+- [ ] Confirm whether SMS alerts to owner's cell are wanted
 - [ ] Build the notification email template with all custom field merge tags
 - [ ] Test notification delivery
 
@@ -115,17 +118,17 @@ Build the missed call workflow (see `ghl/missed-call-workflow.md` for full instr
 
 ## Follow-Up Sequence
 
-- [ ] Build Day 1 follow-up message (4 hours after first text, if no reply)
+- [ ] Build Day 1 follow-up (4 hours after first text, if no reply)
 - [ ] Build Day 3 message
 - [ ] Build Day 7 (final) message
-- [ ] Add `Follow-Up Sequence Complete` tag after final message fires
+- [ ] Add `follow-up-complete` tag after final message fires
 - [ ] Test that follow-up sequence does NOT fire if contact has already replied
 
 ---
 
 ## Final QA
 
-- [ ] Complete full testing checklist (`ghl/testing-checklist.md`)
-- [ ] Document any issues and resolutions
-- [ ] Get client sign-off before switching workflow to Active
+- [ ] Complete the full testing checklist (`ghl/testing-checklist.md`)
+- [ ] Document any issues and how they were resolved
+- [ ] Get client approval before switching workflow to Active
 - [ ] Switch workflow to Active

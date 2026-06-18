@@ -1,6 +1,6 @@
-# GoHighLevel Tags - Roofing Lead System
+# GoHighLevel Tags - Local Service Lead System
 
-Tags are used to classify contacts, control workflow logic, and filter the CRM. Use them consistently.
+Tags classify contacts, control workflow logic, and filter the CRM. Use them consistently across all client accounts.
 
 ---
 
@@ -19,65 +19,63 @@ Tags are used to classify contacts, control workflow logic, and filter the CRM. 
 
 | Tag | When Applied | Purpose |
 |---|---|---|
-| `New Lead - Missed Call` | When missed call workflow triggers | Identifies source of contact |
-| `Replied to SMS` | When contact replies to first text | Confirms they are responsive |
-| `No Reply - Missed Call` | After 30 min wait with no response | Flag for manual follow-up |
-| `Hot Lead - Inspection Requested` | When AI qualifies and they want an inspection | Top priority tag |
-| `Warm Lead - Follow Up` | Interested but not ready to book | Needs nurture sequence |
-| `Not Qualified` | Not a fit (wrong service, wrong area, etc.) | Remove from active follow-up |
-| `Follow-Up Sequence Complete` | After all follow-up messages sent | Prevents re-triggering sequences |
+| `missed-call` | When missed call workflow triggers | Identifies source of contact |
+| `texted-back` | When the first SMS fires | Confirms outreach happened |
+| `replied` | When contact replies to SMS | Confirms they are responsive |
+| `no-response` | After all follow-ups with no reply | Flag for manual review |
+| `qualified-lead` | AI agent has collected full lead details | Ready for human follow-up |
+| `service-request` | Interested but not ready to book | Needs nurture |
+| `estimate-requested` | Contact asked for a quote or estimate | High priority |
+| `appointment-requested` | Contact asked to be scheduled | Move to Appointment Requested stage |
+| `appointment-booked` | Appointment is confirmed | Move to Appointment Booked stage |
+| `follow-up-complete` | All follow-up messages sent | Prevents re-triggering |
+| `not-qualified` | Not a fit (wrong service, wrong area, etc.) | Remove from active follow-up |
 
-### Job Type Tags
+### Urgency Tags
 
 | Tag | When Applied |
 |---|---|
-| `Repair Lead` | Contact needs a repair, not a full replacement |
-| `Replacement Lead` | Contact needs a full roof replacement |
-| `Insurance Claim` | Job involves an insurance claim |
-| `Storm Damage` | Damage is storm-related |
-| `Urgent` | Active leak or immediate damage |
+| `urgent` | Customer describes a same-day or emergency situation |
 
 ### Contact Management Tags
 
 | Tag | When Applied |
 |---|---|
-| `DNC` | Contact opted out (replied STOP) |
-| `Existing Client` | Contact is already a client |
-| `Bad Number` | Number does not work or is wrong |
-| `Duplicate` | Duplicate contact, do not contact |
+| `dnc` | Contact opted out (replied STOP) |
+| `existing-client` | Contact is already a client |
+| `bad-number` | Number does not work or is wrong |
+| `duplicate` | Duplicate contact, do not contact |
+| `handoff-requested` | Customer asked to speak to a human |
 
-### Appointment Tags
+### Outcome Tags
 
 | Tag | When Applied |
 |---|---|
-| `Inspection Scheduled` | Appointment is booked |
-| `Inspection Completed` | Roofer completed the site visit |
-| `Proposal Sent` | Written estimate delivered |
-| `Closed Won` | Job sold |
-| `Closed Lost` | Did not move forward |
+| `won` | Service sold or appointment completed |
+| `lost` | Did not move forward |
 
 ---
 
 ## Workflow Logic Using Tags
 
 **Prevent re-triggering:**
-- Add filter: Tag does NOT contain `DNC`
-- Add filter: Tag does NOT contain `Existing Client`
-- Add filter: Tag does NOT contain `Duplicate`
+- Filter: Tag does NOT contain `dnc`
+- Filter: Tag does NOT contain `existing-client`
+- Filter: Tag does NOT contain `duplicate`
 
-**Prioritize hot leads:**
-- Use tag `Hot Lead - Inspection Requested` to trigger internal notifications
-- Use tag `Urgent` to send priority SMS or call alert
+**Prioritize urgent leads:**
+- Use tag `urgent` to trigger priority notifications to the owner's cell
+- Surface urgent leads at the top of any filtered CRM view
 
 **Stop follow-up sequences:**
-- Check for tag `Replied to SMS` before sending follow-up messages
-- If tag exists, branch away from the follow-up path
+- Before sending Day 3 and Day 7 messages, check if tag `replied` exists
+- If yes, branch away from the follow-up path
 
 ---
 
 ## How to Create Tags in GHL
 
-Tags are created automatically when they are first applied in a workflow or manually added to a contact. You do not need to pre-create them. However, it is good practice to apply each tag at least once in a test contact so they appear in the tag library for easy filtering.
+Tags are created automatically when first applied in a workflow or manually added to a contact. You do not need to pre-create them. However, applying each tag to a test contact makes them easier to find in the tag library for filtering later.
 
 ---
 
@@ -86,9 +84,14 @@ Tags are created automatically when they are first applied in a workflow or manu
 1. Go to **CRM > Contacts**
 2. Click **Filters**
 3. Add filter: **Tag contains** [tag name]
-4. This creates a smart list of all contacts with that tag
+4. Save as a Smart List for quick daily access
 
-Save these smart lists for quick daily review:
-- Hot Leads (tag = `Hot Lead - Inspection Requested`)
-- No Reply (tag = `No Reply - Missed Call`)
-- Urgent (tag = `Urgent`)
+**Recommended Smart Lists:**
+
+| List Name | Filter |
+|---|---|
+| Hot Leads | Tag = `appointment-requested` OR `estimate-requested` |
+| Urgent | Tag = `urgent` |
+| No Response | Tag = `no-response` |
+| All Qualified | Tag = `qualified-lead` |
+| DNC | Tag = `dnc` |

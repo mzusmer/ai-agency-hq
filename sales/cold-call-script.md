@@ -5,10 +5,10 @@
 ## Before the Call
 
 - Have the company name and owner's name ready
-- Know what state/city they're in
-- Glance at their Google Business Profile (reviews, response rate, call button)
-- Call from a local or recognizable number when possible
+- Know what industry they are in and their city
+- Glance at their Google Business Profile (reviews, response rate, how they list their phone)
 - Best times to call: Tuesday through Thursday, 8am to 10am or 4pm to 6pm local time
+- Call from a local number when possible
 
 ---
 
@@ -24,84 +24,86 @@
 
 *Wait for yes.*
 
-> "Hey [First Name], this is [Your Name] from Summit Automation. I work with roofing companies in [State/Area]. Is this a bad time?"
+> "Hey [First Name], this is [Your Name] from Summit Automation. I work with local [service type] businesses in [State/Area]. Is this a bad time?"
 
-*If they say yes, it's a bad time:*
-> "No problem at all. When would be a better time to reach you for two minutes?"
+*If bad time:*
+> "No problem. When would be a better time to reach you for two minutes?"
 
-*If they say no, continue:*
-> "I'll be quick. I help roofing companies set up an automated text-back system so they stop losing leads from missed calls. When someone calls your number and doesn't get an answer, the system texts them back instantly and qualifies the lead for you. Does that sound like something you deal with at all?"
+*If no, continue:*
+> "I'll be quick. I help local businesses set up an automated text-back system so they stop losing customers from missed calls. When someone calls your number and does not get an answer, the system texts them back instantly and qualifies the lead for you. Is that something that comes up at [Business Name]?"
 
 ---
 
 ## If They Say "Yes, We Miss Calls Sometimes"
 
-> "Totally normal, especially when your crew is on a job. What we do is set up a system that fires off a text within seconds of the missed call. An AI handles the conversation, figures out what they need, and by the time you get the notification, the lead is basically pre-qualified.
+> "Totally normal, especially when the team is busy with a client or out in the field. What we set up texts them back within seconds of the missed call. An AI handles the conversation, finds out what they need, and by the time you get the notification, the customer is already warmed up.
 
-> I put together a quick audit for a few roofing companies in [their area] showing how much they were potentially losing from missed calls. Would it be worth 15 minutes for me to walk you through it and show you how the system works?"
-
----
-
-## If They Say "We Don't Really Miss Calls" or "We Have Someone Who Answers"
-
-> "That's great. Even with someone answering, most companies are still missing after-hours calls and weekends. And honestly, the system also handles the follow-up when leads go quiet after the first call. Is that ever an issue?"
-
-*If yes:* Pivot to follow-up problem.
-*If no:* Respect it and offer the free audit anyway.
-
-> "Fair enough. I can still put together a free audit showing what the numbers look like for your specific business, no pressure. Want me to send that over?"
+> I put together a quick free audit for a few [industry] businesses in [their area] recently showing how much they were potentially losing. Would 15 minutes be worth it to walk you through it and see how it would work for [Business Name]?"
 
 ---
 
-## Handling "I'm Not Interested"
+## If They Say "We Don't Really Miss Calls"
 
-> "Totally respect that. Can I ask, is it timing or just not a priority right now?"
+> "That's great. Even with good coverage, most businesses still have gaps after hours and on weekends. And even when someone answers, the follow-up often gets lost. Is after-hours or weekend call-back ever an issue for you?"
 
-*If timing:*
-> "Got it. When would be better? I'm happy to follow up then."
+*If yes:* Pivot to that problem.
+*If no:* Offer the free audit anyway.
 
-*If not a priority:*
-> "Understood. Mind if I send you a short email just so you have it in case things change? Takes 30 seconds to read."
+> "Fair enough. I can still put together a free audit showing what the numbers look like for your setup specifically. Want me to send that over?"
 
 ---
 
 ## Handling "How Much Does It Cost?"
 
-> "The setup is $1,000 one time, and then $500 a month. For most roofing companies, one extra booked job covers the cost. Happy to show you exactly how it works on a quick call before you make any decisions."
+> "Setup is $1,000 one time, then $500 a month. For most [industry] businesses, one extra booked appointment usually covers that cost. I would love to show you exactly how it works on a quick call before you make any decisions."
 
 ---
 
 ## Handling "Send Me an Email First"
 
-> "Absolutely. What's the best email to reach you? And just so I know it gets to the right place, what's your first name?"
+> "Absolutely. What is the best email? And just so I make sure it gets to the right person, what is your first name?"
 
-Send the cold email right after the call (use Email 1 from `cold-email-scripts.md`).
+Send Email 1 from `cold-email-scripts.md` immediately after the call.
 
 ---
 
 ## Asking for the Demo
 
-> "I'd love to show you a quick 15-minute walkthrough. I'll show you the full system, what the homeowner experience looks like on their end, and I'll bring the missed call audit for your company specifically. Would [Day] or [Other Day] work better for you?"
+> "I would love to show you a quick 15-minute walkthrough. I'll bring the missed call audit for your business specifically. Would [Day] or [Other Day] work better for you?"
 
-*Give two specific options, not "whenever works for you."*
+Always offer two specific days. Never say "whenever works for you."
 
 ---
 
 ## Closing the Call
 
-> "Perfect. I've got you down for [Day/Time]. I'll send a confirmation right to [email]. Looking forward to it. Anything else you want me to have ready for the call?"
+> "Perfect. I have got you down for [Day/Time]. I will send a confirmation to [email]. Looking forward to it. Anything you want me to have ready?"
 
 ---
 
 ## Voicemail Script (If They Don't Answer)
 
-> "Hey [First Name], this is [Your Name] from Summit Automation. I work with roofing companies in [State] to help them capture leads from missed calls. Give me a call back at [number] or I'll follow up by text. Talk soon."
+> "Hey [First Name], this is [Your Name] from Summit Automation. I help local [industry] businesses in [State] capture more leads from missed calls. Give me a call back at [number] or I will try you again soon. Talk later."
 
 Keep voicemails under 20 seconds. Do not leave a voicemail on the second or third attempt.
 
 ---
 
-## Call Log Notes
+## Industry Openers by Niche
+
+Customize the opening line based on the business type:
+
+| Industry | Customized Opener |
+|---|---|
+| HVAC | "...when a customer calls because their AC went out and you can't answer..." |
+| Med Spa | "...when a potential client calls to book a treatment and goes to voicemail..." |
+| Dental | "...when a new patient inquiry call goes unanswered..." |
+| Landscaping | "...when you're out on a job and a new customer calls to get a quote..." |
+| Plumbing | "...when a customer calls about an emergency and can't reach you..." |
+
+---
+
+## Call Log
 
 After every call, log in `data/daily-tracker.md`:
 - Did they answer?
